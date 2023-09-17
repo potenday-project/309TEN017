@@ -8,6 +8,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "engines": {
+    "node": ">=18.12.1",
+    "npm": "please-use-yarn"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
