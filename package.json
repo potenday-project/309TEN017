@@ -44,6 +44,7 @@
       }
     },
     "rules": {
+      "prettier/prettier": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
@@ -55,7 +56,8 @@
           "json": "never"
         }
       ],
-      "react/jsx-filename-extension": "off"
+      "react/jsx-filename-extension": "off",
+      "react/react-in-jsx-scope": "off"
     }
   },
   "browserslist": {
