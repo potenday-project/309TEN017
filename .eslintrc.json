@@ -21,6 +21,7 @@
       }
     ],
     "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["off"],
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off"
   }
