@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 import ProviderWrapper from './components/wrapper/ProviderWrapper';
-import supabase from './supabaseClinet';
+import supabase from './store/supabaseClient';
 
 function App() {
   const [text, setText] = useState('');
@@ -10,10 +10,7 @@ function App() {
     const testData = {
       test: text,
     };
-    const { data, error } = await supabase
-      .from('Test')
-      .insert([testData])
-      .select();
+    const { data, error } = await supabase.from('Test').insert([testData]).select();
 
     if (error) {
       console.error('Error saving text:', error);
@@ -25,14 +22,9 @@ function App() {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <ProviderWrapper>
-        <input
-          type='text'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder='Enter your text here...'
-        />
+        <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Enter your text here..." />
         <Button onClick={saveText}>Save Text</Button>
       </ProviderWrapper>
     </div>
