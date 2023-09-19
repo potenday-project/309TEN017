@@ -1,31 +1,31 @@
-import { Button } from '@nextui-org/react';
-import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from 'react';
+import SplashScreen from './components/common/SplashScreen';
 import ProviderWrapper from './components/wrapper/ProviderWrapper';
-import supabase from './store/supabaseClient';
+import Footer from './components/common/Footer';
+import Header from './components/common/Header';
 
 function App() {
-  const [text, setText] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
-  const saveText = async () => {
-    const testData = {
-      test: text,
-    };
-    const { data, error } = await supabase.from('Test').insert([testData]).select();
-
-    if (error) {
-      console.error('Error saving text:', error);
-    } else {
-      alert('Text saved successfully!');
-      setText('');
-    }
-    console.log('data is: ', data);
-  };
+  useEffect(() => {
+    // 더미 구현
+    setTimeout(() => setIsLoading(false), 1500);
+  });
 
   return (
-    <div className="App">
+    <div className="App h-full">
       <ProviderWrapper>
-        <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Enter your text here..." />
-        <Button onClick={saveText}>Save Text</Button>
+        <div className="relative w-[540px] h-[100vh] mx-auto">
+          <Header />
+
+          <main>
+            {/* {isLoading && <SplashScreen />} */}
+            <div>Test</div>
+          </main>
+
+          <Footer />
+        </div>
       </ProviderWrapper>
     </div>
   );
