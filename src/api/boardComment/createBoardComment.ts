@@ -1,5 +1,5 @@
-import supabase from '../../store/supabaseClient';
 import { Board } from '../../types/db';
+import supabase from '../supabaseClient';
 
 const createBoardComment = async (board: Board, content: string) => {
   const { error } = await supabase.from('BoardComments').insert({

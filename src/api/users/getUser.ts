@@ -1,5 +1,5 @@
-import supabase from '../../store/supabaseClient';
 import { User } from '../../types/db';
+import supabase from '../supabaseClient';
 
 const getUser = async ({ name, id }: { name?: string; id?: number }) => {
   if (name) {

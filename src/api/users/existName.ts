@@ -1,4 +1,4 @@
-import supabase from '../../store/supabaseClient';
+import supabase from '../supabaseClient';
 
 /**
  * Check for duplicate name.

@@ -1,5 +1,5 @@
-import supabase from '../../store/supabaseClient';
 import { User } from '../../types/db';
+import supabase from '../supabaseClient';
 
 const createBoard = async (
   user: User,

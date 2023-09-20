@@ -1,4 +1,4 @@
-import supabase from '../../store/supabaseClient';
+import supabase from '../supabaseClient';
 import getUser from '../users/getUser';
 import getBoard from './getBoard';
 

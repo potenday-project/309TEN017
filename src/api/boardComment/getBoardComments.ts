@@ -1,5 +1,5 @@
-import supabase from '../../store/supabaseClient';
 import { BoardComment } from '../../types/db';
+import supabase from '../supabaseClient';
 
 const getBoardComments = async (id: number) => {
   const { data, error } = await supabase.from('BoardComments').select('*').eq('board_id', id).returns<BoardComment[]>();
