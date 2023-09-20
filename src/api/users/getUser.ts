@@ -1,13 +1,25 @@
 import supabase from '../../store/supabaseClient';
 import { User } from '../../types/db';
 
-const getUser = async (name: string) => {
-  const { data, error } = await supabase.from('Users').select('*').eq('name', name).returns<User[]>();
-  if (error) {
-    console.log('unable to get user');
-    return null;
+const getUser = async ({ name, id }: { name?: string; id?: number }) => {
+  if (name) {
+    const { data, error } = await supabase.from('Users').select('*').eq('name', name).returns<User[]>();
+    if (error) {
+      console.log('unable to get user');
+      return null;
+    }
+    return data[0];
   }
-  return data[0];
+  if (id) {
+    const { data, error } = await supabase.from('Users').select('*').eq('id', id).returns<User[]>();
+    if (error) {
+      console.log('unable to get user');
+      return null;
+    }
+    return data[0];
+  }
+
+  return null;
 };
 
 export default getUser;
