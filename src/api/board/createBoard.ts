@@ -1,7 +1,7 @@
-import supabase from '../../store/supabaseClient';
+import { supabaseClient as supabase } from '../../store/supabaseClient';
 import { User } from '../../types/db';
 
-const createBoard = async (
+export const createBoard = async (
   user: User,
   price: number,
   title: string,
@@ -23,5 +23,3 @@ const createBoard = async (
   }
   return true;
 };
-
-export default createBoard;

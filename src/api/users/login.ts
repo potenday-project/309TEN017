@@ -1,11 +1,9 @@
-import existName from './existName';
-import getUser from './getUser';
-import signIn from './signIn';
+import { userApi } from '..';
 
-const login = async (name: string, password: string) => {
-  const isExist = await existName(name);
+export const login = async (name: string, password: string) => {
+  const isExist = await userApi.existName(name);
   if (isExist) {
-    const user = await getUser({ name });
+    const user = await userApi.getUser({ name });
     if (user?.password === password) {
       console.log('login success');
       return user;
@@ -14,9 +12,7 @@ const login = async (name: string, password: string) => {
     return null;
   }
 
-  const user = await signIn(name, password);
+  const user = await userApi.signIn(name, password);
   console.log('singin');
   return user;
 };
-
-export default login;
