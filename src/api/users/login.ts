@@ -5,7 +5,7 @@ import signIn from './signIn';
 const login = async (name: string, password: string) => {
   const isExist = await existName(name);
   if (isExist) {
-    const user = await getUser(name);
+    const user = await getUser({ name });
     if (user?.password === password) {
       console.log('login success');
       return user;
