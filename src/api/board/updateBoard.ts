@@ -1,6 +1,5 @@
 import { supabaseClient as supabase } from '../../store/supabaseClient';
-import getUser from '../users/getUser';
-import { boardApi } from '..';
+import { userApi, boardApi } from '..';
 
 export const updateBoard = async (id: number) => {
   // already bought
@@ -20,7 +19,7 @@ export const updateBoard = async (id: number) => {
     return false;
   }
 
-  const user = await getUser({ id: board?.user_id });
+  const user = await userApi.getUser({ id: board?.user_id });
 
   if (board && user) {
     const saveMoney = user.save_money;
