@@ -4,7 +4,6 @@ type Users = {
   name: string;
   password: string;
   save_money: number;
-  level: number;
 };
 
 export default Users;
