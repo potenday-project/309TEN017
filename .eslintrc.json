@@ -24,6 +24,7 @@
     "comma-dangle": ["off"],
     "object-curly-newline": "off",
     "react/jsx-filename-extension": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": 0
   }
 }
