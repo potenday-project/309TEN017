@@ -1,23 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Navbar, NavbarContent, NavbarItem, Button, Divider } from '@nextui-org/react';
 
 export default function Footer() {
   return (
-    <footer className="absolute bottom-0 w-full h-[90px] bg-red-300">
-      <div className="flex justify-between h-full [&_a]:h-full [&_button]:h-full">
-        <Link to="/">
-          <button type="button" className="bg-red-200">
-            털털홈
-          </button>
-        </Link>
+    <footer className="absolute bottom-0 w-full h-[90px]">
+      <Divider />
 
-        <button type="button" className="bg-red-200">
-          글쓰기
-        </button>
+      <Navbar isBlurred={false} className="h-full">
+        <NavbarContent className="!justify-between">
+          <NavbarItem>
+            <Button color="primary" size="lg">
+              <span className="font-bold">털털홈</span>
+            </Button>
+          </NavbarItem>
 
-        <button type="button" className="bg-red-200">
-          내정보
-        </button>
-      </div>
+          <NavbarItem>
+            <Button color="primary" size="lg">
+              <span className="font-bold">글쓰기</span>
+            </Button>
+          </NavbarItem>
+
+          <NavbarItem>
+            <Button color="primary" size="lg">
+              <span className="font-bold">내정보</span>
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
     </footer>
   );
 }
