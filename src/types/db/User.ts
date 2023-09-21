@@ -1,6 +1,6 @@
 type Users = {
   id: number;
-  created_at: Date;
+  created_at: string;
   name: string;
   password: string;
   save_money: number;
