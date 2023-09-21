@@ -1,5 +1,4 @@
-
-import { supabaseClient as supabase } from '../../api/supabaseClient';
+import { supabaseClient as supabase } from '../supabaseClient';
 
 /**
  * Check for duplicate name.

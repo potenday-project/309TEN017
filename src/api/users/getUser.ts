@@ -1,5 +1,5 @@
-import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { User } from '../../types/db';
+import { supabaseClient as supabase } from '../supabaseClient';
 
 export const getUser = async ({ name, id }: { name?: string; id?: number }) => {
   if (name) {
