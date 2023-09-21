@@ -1,4 +1,4 @@
-import { supabaseClient as supabase } from '../../store/supabaseClient';
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 
 export const signIn = async (name: string, password: string) => {
   const { data, error } = await supabase

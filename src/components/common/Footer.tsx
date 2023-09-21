@@ -1,19 +1,37 @@
+import { Button, Divider, Navbar, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { openModal } from '../../store/modal/modalSlice';
+import { useAppDispatch } from '../../store/store';
+
 export default function Footer() {
+  const dispatch = useAppDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(openModal({ content: 'test' }));
+  };
+
   return (
-    <footer className="absolute bottom-0 w-full h-[90px] bg-red-300">
-      <div className="flex justify-between h-full">
-        <button type="button" className="bg-red-200">
-          털털홈
-        </button>
-
-        <button type="button" className="bg-red-200">
-          글쓰기
-        </button>
-
-        <button type="button" className="bg-red-200">
-          내정보
-        </button>
-      </div>
+    <footer className="absolute bottom-0 w-full h-[90px]">
+      <Divider />
+      <Navbar className="w-full" isBordered isBlurred={false}>
+        <NavbarContent className="w-full flex !justify-between">
+          <NavbarItem>
+            <Button className="text-white font-bold">털털홈</Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button
+              className="text-white font-bold"
+              onClick={() => {
+                handleOpenModal();
+              }}
+            >
+              글쓰기
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button className="text-white font-bold">내 정보</Button>
+          </NavbarItem>
+        </NavbarContent>
+      </Navbar>
     </footer>
   );
 }

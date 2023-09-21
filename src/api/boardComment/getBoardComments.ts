@@ -1,4 +1,4 @@
-import { supabaseClient as supabase } from '../../store/supabaseClient';
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { BoardComment } from '../../types/db';
 
 export const getBoardComments = async (id: number) => {

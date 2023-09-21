@@ -1,4 +1,4 @@
-import { supabaseClient as supabase } from '../../store/supabaseClient';
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { User } from '../../types/db';
 
 export const getUser = async ({ name, id }: { name?: string; id?: number }) => {
