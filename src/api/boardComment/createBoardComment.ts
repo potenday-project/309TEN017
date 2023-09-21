@@ -1,7 +1,7 @@
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { Board } from '../../types/db';
-import supabase from '../supabaseClient';
 
-const createBoardComment = async (board: Board, content: string) => {
+export const createBoardComment = async (board: Board, content: string) => {
   const { error } = await supabase.from('BoardComments').insert({
     board_id: board.id,
     content,
@@ -13,5 +13,3 @@ const createBoardComment = async (board: Board, content: string) => {
   }
   return true;
 };
-
-export default createBoardComment;

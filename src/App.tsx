@@ -4,6 +4,7 @@ import SplashScreen from './components/common/SplashScreen';
 import ProviderWrapper from './components/wrapper/ProviderWrapper';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
+import Router from './components/common/Router';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,20 +15,21 @@ function App() {
   });
 
   return (
-    <div className="App h-full">
-      <ProviderWrapper>
+    <ProviderWrapper>
+      <div className="h-full">
         <div className="relative w-[540px] h-[100vh] mx-auto">
           <Header />
 
           <main>
+            <Router />
+
             {/* {isLoading && <SplashScreen />} */}
-            <div>Test</div>
           </main>
 
           <Footer />
         </div>
-      </ProviderWrapper>
-    </div>
+      </div>
+    </ProviderWrapper>
   );
 }
 

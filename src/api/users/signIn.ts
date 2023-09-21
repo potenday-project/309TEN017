@@ -1,6 +1,6 @@
-import supabase from '../supabaseClient';
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 
-const signIn = async (name: string, password: string) => {
+export const signIn = async (name: string, password: string) => {
   const { data, error } = await supabase
     .from('Users')
     .insert({
@@ -16,5 +16,3 @@ const signIn = async (name: string, password: string) => {
 
   return data[0];
 };
-
-export default signIn;

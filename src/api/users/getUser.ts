@@ -1,7 +1,7 @@
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { User } from '../../types/db';
-import supabase from '../supabaseClient';
 
-const getUser = async ({ name, id }: { name?: string; id?: number }) => {
+export const getUser = async ({ name, id }: { name?: string; id?: number }) => {
   if (name) {
     const { data, error } = await supabase.from('Users').select('*').eq('name', name).returns<User[]>();
     if (error) {
@@ -21,5 +21,3 @@ const getUser = async ({ name, id }: { name?: string; id?: number }) => {
 
   return null;
 };
-
-export default getUser;

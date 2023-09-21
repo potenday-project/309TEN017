@@ -25,6 +25,7 @@
     "object-curly-newline": "off",
     "react/jsx-filename-extension": "off",
     "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
     "linebreak-style": 0,
     "camelcase": "off",
     "jsx-a11y/click-events-have-key-events": "off",

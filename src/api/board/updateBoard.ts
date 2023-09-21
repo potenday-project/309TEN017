@@ -1,10 +1,10 @@
-import supabase from '../supabaseClient';
-import getUser from '../users/getUser';
-import getBoard from './getBoard';
+import { boardApi, userApi } from '..';
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 
-const updateBoard = async (id: number) => {
+
+export const updateBoard = async (id: number) => {
   // already bought
-  const board = await getBoard(id);
+  const board = await boardApi.getBoard(id);
   if (board?.is_bought) {
     console.log('already bought..');
     return false;
@@ -20,7 +20,7 @@ const updateBoard = async (id: number) => {
     return false;
   }
 
-  const user = await getUser({ id: board?.user_id });
+  const user = await userApi.getUser({ id: board?.user_id });
 
   if (board && user) {
     const saveMoney = user.save_money;
@@ -39,5 +39,3 @@ const updateBoard = async (id: number) => {
 
   return true;
 };
-
-export default updateBoard;

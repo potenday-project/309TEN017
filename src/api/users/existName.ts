@@ -1,11 +1,12 @@
-import supabase from '../supabaseClient';
+
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 
 /**
  * Check for duplicate name.
  * @param {string} name
  * @returns
  */
-const existName = async (name: string) => {
+export const existName = async (name: string) => {
   const { data, error } = await supabase.from('Users').select('name').eq('name', name);
   console.log(data);
   if (error) {
@@ -13,5 +14,3 @@ const existName = async (name: string) => {
   }
   return data && data.length > 0;
 };
-
-export default existName;

@@ -1,7 +1,7 @@
+import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { BoardComment } from '../../types/db';
-import supabase from '../supabaseClient';
 
-const getBoardComments = async (id: number) => {
+export const getBoardComments = async (id: number) => {
   const { data, error } = await supabase.from('BoardComments').select('*').eq('board_id', id).returns<BoardComment[]>();
   if (error) {
     console.log('unable to get board');
@@ -9,5 +9,3 @@ const getBoardComments = async (id: number) => {
   }
   return data;
 };
-
-export default getBoardComments;
