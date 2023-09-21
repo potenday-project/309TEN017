@@ -2,11 +2,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { User } from '../../types/db';
 
-type UserState = Omit<User, 'password'>;
+type UserState = User;
 
 const initialState: UserState = {
   id: 0,
-  created_at: new Date(),
+  password: '',
+  created_at: new Date().toISOString(),
   name: '',
   save_money: 0,
 };
@@ -16,10 +17,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     getUser: state => state,
-    setUser: (state, action: PayloadAction<{ user: User }>) => {
-      delete (action.payload.user as any).password;
-      state = action.payload.user;
-    },
+    setUser: (state, action: PayloadAction<{ user: UserState }>) => action.payload.user,
   },
 });
 
