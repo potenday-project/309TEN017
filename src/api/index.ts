@@ -1,5 +1,5 @@
-export { supabaseClient } from '../store/supabaseClient';
+export { supabaseClient } from './supabaseClient';
 
 export * as boardApi from './board';
-export * as userApi from './users';
 export * as commentApi from './boardComment';
+export * as userApi from './users';
