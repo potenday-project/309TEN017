@@ -1,12 +1,18 @@
 import { Button, Divider, Navbar, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { ReactNode } from 'react';
 import { openModal } from '../../store/modal/modalSlice';
-import { useAppDispatch } from '../../store/store';
+import { RootState, useAppDispatch, useAppSelector } from '../../store/store';
+import LoginForm from '../modal/LoginForm';
+import WriteForm from '../modal/WriteForm';
 
 export default function Footer() {
   const dispatch = useAppDispatch();
+  // 편의상 name이 initialState가 아니면 로그인 처리.
+  const isLogin = useAppSelector((state: RootState) => state.user.name !== '');
+  // const user = useAppSelector((state: RootState) => state.user);
 
-  const handleOpenModal = () => {
-    dispatch(openModal({ content: 'test' }));
+  const handleOpenModal = (content: ReactNode) => {
+    dispatch(openModal({ content }));
   };
 
   return (
@@ -21,7 +27,11 @@ export default function Footer() {
             <Button
               className="text-white font-bold"
               onClick={() => {
-                handleOpenModal();
+                if (isLogin) {
+                  handleOpenModal(<WriteForm />);
+                } else {
+                  handleOpenModal(<LoginForm />);
+                }
               }}
             >
               글쓰기
