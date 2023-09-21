@@ -1,5 +1,5 @@
-import { supabaseClient as supabase } from '../../api/supabaseClient';
 import { Board } from '../../types/db';
+import { supabaseClient as supabase } from '../supabaseClient';
 
 export const getBoard = async (id: number) => {
   const { data, error } = await supabase.from('Boards').select('*').eq('id', id).returns<Board[]>();

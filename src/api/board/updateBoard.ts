@@ -1,6 +1,5 @@
 import { boardApi, userApi } from '..';
-import { supabaseClient as supabase } from '../../api/supabaseClient';
-
+import { supabaseClient as supabase } from '../supabaseClient';
 
 export const updateBoard = async (id: number) => {
   // already bought
