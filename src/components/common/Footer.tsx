@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Navbar, NavbarContent, NavbarItem, Button, Divider } from '@nextui-org/react';
 
 export default function Footer() {
@@ -9,7 +10,9 @@ export default function Footer() {
         <NavbarContent className="!justify-between">
           <NavbarItem>
             <Button color="primary" size="lg">
-              <span className="font-bold">털털홈</span>
+              <Link to="/">
+                <span className="font-bold">털털홈</span>
+              </Link>
             </Button>
           </NavbarItem>
 
