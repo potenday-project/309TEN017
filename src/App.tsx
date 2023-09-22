@@ -27,9 +27,9 @@ function App() {
 
                 {/* {isLoading && <SplashScreen />} */}
               </main>
-
-              <Footer />
             </div>
+
+            <Footer />
           </div>
         </div>
       </div>
