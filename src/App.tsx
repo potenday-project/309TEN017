@@ -17,16 +17,20 @@ function App() {
   return (
     <ProviderWrapper>
       <div className="h-full">
-        <div className="relative w-[540px] h-[100vh] mx-auto">
-          <Header />
+        <div className="relative w-[540px] h-[100vh] mx-auto border border-solid border-gray-100">
+          <div className="shadow-sm">
+            <div className="w-[90%] mx-auto">
+              <Header />
 
-          <main>
-            <Router />
+              <main>
+                <Router />
 
-            {/* {isLoading && <SplashScreen />} */}
-          </main>
+                {/* {isLoading && <SplashScreen />} */}
+              </main>
 
-          <Footer />
+              <Footer />
+            </div>
+          </div>
         </div>
       </div>
     </ProviderWrapper>
