@@ -1,7 +1,9 @@
 import { Button, Divider, Navbar, NavbarContent, NavbarItem } from '@nextui-org/react';
 import { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { openModal } from '../../store/modal/modalSlice';
 import { RootState, useAppDispatch, useAppSelector } from '../../store/store';
+import Helper from '../modal/Helper';
 import LoginForm from '../modal/LoginForm';
 import WriteForm from '../modal/WriteForm';
 
@@ -15,13 +17,22 @@ export default function Footer() {
     dispatch(openModal({ content }));
   };
 
+  const navigate = useNavigate();
+
   return (
     <footer className="absolute bottom-0 w-full h-[90px]">
       <Divider />
       <Navbar className="w-full" isBordered isBlurred={false}>
         <NavbarContent className="w-full flex !justify-between">
           <NavbarItem>
-            <Button className="text-white font-bold">털털홈</Button>
+            <Button
+              className="text-white font-bold"
+              onClick={() => {
+                handleOpenModal(<Helper />);
+              }}
+            >
+              도움말
+            </Button>
           </NavbarItem>
           <NavbarItem>
             <Button
@@ -38,7 +49,18 @@ export default function Footer() {
             </Button>
           </NavbarItem>
           <NavbarItem>
-            <Button className="text-white font-bold">내 정보</Button>
+            <Button
+              className="text-white font-bold"
+              onClick={() => {
+                if (isLogin) {
+                  navigate('/mypage');
+                } else {
+                  handleOpenModal(<LoginForm />);
+                }
+              }}
+            >
+              내 정보
+            </Button>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
