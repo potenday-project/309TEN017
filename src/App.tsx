@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import SplashScreen from './components/common/SplashScreen';
-import ProviderWrapper from './components/wrapper/ProviderWrapper';
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 import Router from './components/common/Router';
+import ProviderWrapper from './components/wrapper/ProviderWrapper';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,15 +16,12 @@ function App() {
   return (
     <ProviderWrapper>
       <div className="h-full">
-        <div className="relative w-[540px] h-[100vh] mx-auto">
+        <div className="relative w-[540px] h-[100svh] mx-auto">
           <Header />
-
-          <main>
+          <main className="minH-[380px]">
             <Router />
-
             {/* {isLoading && <SplashScreen />} */}
           </main>
-
           <Footer />
         </div>
       </div>
