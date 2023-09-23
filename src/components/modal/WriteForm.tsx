@@ -1,4 +1,11 @@
-import { Button, Input, ModalBody, ModalContent, ModalFooter, ModalHeader } from '@nextui-org/react';
+import {
+  Button,
+  Input,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+} from '@nextui-org/react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -19,8 +26,7 @@ export default function WriteForm() {
       parseInt(price.replace(/[^0-9]/g, ''), 10),
       title,
       content,
-      '',
-      false
+      ''
     );
     if (board) {
       toast.success('게시글이 작성되었습니다.');
@@ -32,9 +38,24 @@ export default function WriteForm() {
     <ModalContent>
       <ModalHeader>로그인</ModalHeader>
       <ModalBody>
-        <Input type="text" label="제목" value={title} onChange={event => setTitle(event.target.value)} />
-        <Input type="text" label="내용" value={content} onChange={event => setContent(event.target.value)} />
-        <Input type="text" label="가격" value={price} onChange={event => setPrice(event.target.value)} />
+        <Input
+          type="text"
+          label="제목"
+          value={title}
+          onChange={event => setTitle(event.target.value)}
+        />
+        <Input
+          type="text"
+          label="내용"
+          value={content}
+          onChange={event => setContent(event.target.value)}
+        />
+        <Input
+          type="text"
+          label="가격"
+          value={price}
+          onChange={event => setPrice(event.target.value)}
+        />
       </ModalBody>
       <ModalFooter>
         <Button onClick={() => dispatch(closeModal())}>취소</Button>
