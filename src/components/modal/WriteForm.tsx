@@ -36,7 +36,7 @@ export default function WriteForm() {
 
   return (
     <ModalContent>
-      <ModalHeader>로그인</ModalHeader>
+      <ModalHeader>고민되는 소비를 올려주세요.</ModalHeader>
       <ModalBody>
         <Input
           type="text"
