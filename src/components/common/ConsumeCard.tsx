@@ -1,29 +1,33 @@
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/react';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { commentApi } from '../../api';
 import { openModal } from '../../store/modal/modalSlice';
 import { useAppDispatch } from '../../store/store';
 import { Board, BoardComment } from '../../types/db';
 import CommentForm from '../modal/CommentForm';
 
-export default function ConsumeCard({
-  board,
-  comments,
-}: {
-  board: Board;
-  comments: BoardComment[];
-}) {
+export default function ConsumeCard({ board }: { board: Board }) {
   const dispatch = useAppDispatch();
   const handleOpenModal = (content: ReactNode) => {
     dispatch(openModal({ content }));
   };
 
+  const [comments, setComments] = useState<BoardComment[]>([]);
+  useEffect(() => {
+    async function getBoardComments() {
+      const newComments = await commentApi.getBoardComments(board.id);
+      setComments(newComments ?? []);
+    }
+    getBoardComments();
+  }, []);
+
   return (
     <div
       onClick={() => {
-        handleOpenModal(<CommentForm board={board} comments={comments ?? []} />);
+        handleOpenModal(<CommentForm board={board} comments={comments} />);
       }}
     >
-      <Card className="!w-full p-3 cursor-pointer">
+      <Card className="!w-full p-3 cursor-pointer shadow-md">
         <CardHeader>
           <div className="flex flex-col gap-1 items-start justify-center">
             <h4 className="text-small font-semibold leading-none text-default-600">

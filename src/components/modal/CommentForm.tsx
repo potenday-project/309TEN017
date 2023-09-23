@@ -30,8 +30,8 @@ export default function CommentForm({
           <div>댓글이 없어요. 첫 번째 댓글을 작성해주세요!</div>
         ) : (
           comments.map((comment, index) => (
-            <Code key={comment.id + 1}>
-              <div className="p-1 font-bold">익명{index}</div>
+            <Code key={index + 1}>
+              <div className="p-1 font-bold">익명{index + 1}</div>
               <Divider />
               <div className="p-1 text-sm text-slate-500">{comment.content}</div>
             </Code>

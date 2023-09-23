@@ -6,7 +6,7 @@ type Board = {
   title: string;
   content: string;
   image_url: string;
-  is_bought: boolean;
+  is_bought?: boolean;
 };
 
 export default Board;
