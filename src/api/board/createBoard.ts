@@ -6,8 +6,7 @@ export const createBoard = async (
   price: number,
   title: string,
   content: string,
-  image_url: string,
-  is_bought: boolean
+  image_url: string
 ) => {
   const { error } = await supabase.from('Boards').insert({
     user_id: user.id,
@@ -15,7 +14,6 @@ export const createBoard = async (
     title,
     content,
     image_url,
-    is_bought,
   });
   if (error) {
     console.log('unable to create board');

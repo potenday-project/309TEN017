@@ -1,7 +1,7 @@
 import { boardApi, userApi } from '..';
 import { supabaseClient as supabase } from '../supabaseClient';
 
-export const updateBoard = async (id: number) => {
+export const updateBoard = async (id: number, isBought: boolean) => {
   // already bought
   const board = await boardApi.getBoard(id);
   if (board?.is_bought) {
@@ -10,9 +10,13 @@ export const updateBoard = async (id: number) => {
   }
 
   const { error: boardError } = await supabase
-    .from('Boards') // 여기에는 테이블 이름을 사용하세요. 예를 들면 'boards'
-    .update({ is_bought: true })
+    .from('Boards')
+    .update({ is_bought: isBought })
     .eq('id', id);
+
+  if (isBought) {
+    return false;
+  }
 
   if (boardError) {
     console.log('unable to update board');
@@ -26,7 +30,7 @@ export const updateBoard = async (id: number) => {
     const { price } = board;
 
     const { error: userError } = await supabase
-      .from('Users') // 여기에는 테이블 이름을 사용하세요. 예를 들면 'boards'
+      .from('Users')
       .update({ save_money: saveMoney + price })
       .eq('id', board.user_id);
     if (userError) {
